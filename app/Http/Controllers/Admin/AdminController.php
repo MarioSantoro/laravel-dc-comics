@@ -14,7 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $navLinks = config('db.navLinks');
+        $comics = config('db.comics');
+        return view('welcome', compact('navLinks', 'comics'));
     }
 
     /**

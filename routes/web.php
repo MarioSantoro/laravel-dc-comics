@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $navLinks = config('db.navLinks');
-    return view('welcome', compact('navLinks'));
-})->name('Homepage');
+Route::get('/', [AdminController::class, 'index'])->name('Homepage');
