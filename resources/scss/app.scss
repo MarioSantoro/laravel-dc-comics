@@ -1,5 +1,83 @@
+@use "./utilities/variables.scss" as *;
 @import "~bootstrap/scss/bootstrap";
 
-h1 {
-    color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@1;100;200;300;400;500;600;700;800;900;1000&display=swap');
+
+body {
+    background-color: #212121;
+    font-family: 'Sofia Sans Condensed', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.colorBlack {
+    color: $colorFontBlack;
+}
+
+ul li.active {
+    border-bottom: 3px solid $colorFontBlue;
+
+    a {
+
+        color: $colorFontBlue !important;
+    }
+}
+
+.non-active {
+    margin-bottom: 3px;
+}
+
+header {
+
+    div.upper {
+        background-color: $colorFontBlue;
+        font-size: .88rem;
+        padding: .47rem 0;
+    }
+
+    div.lower {
+        background-color: $colorFontWhite;
+        padding: 1rem 0;
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        ul li {
+            margin-left: 2.5rem;
+
+            a {
+                color: $colorFontBlack;
+                text-decoration: none;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+        }
+    }
+
+    div.logo {
+        margin-left: 1rem;
+    }
+
+    div.searchbar {
+        input {
+            border: none;
+            border-bottom: 2px solid $colorFontBlue;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        div.icon {
+            position: absolute;
+            right: 0;
+        }
+    }
 }
