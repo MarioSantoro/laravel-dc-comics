@@ -11,14 +11,16 @@
                             <th scope="col">Title</th>
                             <th scope="col">Series</th>
                             <th scope="col">Type</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($comics as $comic)
                             <tr>
-                                <th scope="row">{{ $comic['title'] }}</th>
-                                <td>{{ $comic['series'] }}</td>
-                                <td>{{ $comic['type'] }}</td>
+                                <th scope="row">{{ $comic->title }}</th>
+                                <td>{{ $comic->series }}</td>
+                                <td>{{ $comic->type }}</td>
+                                <td><a href="{{ route('show', $comic->id) }}" class="btn btn-primary">View</a></td>
                             </tr>
                         @endforeach
                     </tbody>

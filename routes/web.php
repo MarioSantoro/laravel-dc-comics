@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('/', AdminController::class);
 Route::get('/', [AdminController::class, 'index'])->name('Homepage');
+
+Route::get('/{id}', [AdminController::class, 'show'])->name('SingleComic');
