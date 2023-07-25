@@ -2,55 +2,55 @@
 return [
     'navLinks' => [
         [
-            'link' => "Homepage",
-            'text' => "Characters",
-            'active' => false,
+            'link' => "/",
+            'text' => "Homepage",
+            'active' => "HomepageGuest",
         ],
         [
             'link' => "Homepage",
             'text' => "Comics",
-            'active' => true,
+            'active' => "",
         ],
 
         [
             'link' => "Homepage",
             'text' => "Movies",
-            'active' => false,
+            'active' => "",
         ],
         [
             'link' => "Homepage",
             'text' => "TV",
-            'active' => false,
+            'active' => "",
         ],
         [
             'link' => "Homepage",
             'text' => "games",
-            'active' => false,
+            'active' => "",
         ],
         [
             'link' => "Homepage",
             'text' => "collectibles",
-            'active' => false,
+            'active' => "",
         ],
         [
             'link' => "Homepage",
             'text' => "videos",
-            'active' => false,
+            'active' => "",
         ],
         [
             'link' => "Homepage",
             'text' => "fans",
-            'active' => false,
+            'active' => "",
         ],
         [
             'link' => "Homepage",
             'text' => "news",
-            'active' => false,
+            'active' => "",
         ],
         [
-            'link' => "Homepage",
-            'text' => "shop",
-            'active' => false,
+            'link' => "/admin",
+            'text' => "Admin",
+            'active' => "HomepageAdmin",
         ],
     ],
     'comics' =>  [
