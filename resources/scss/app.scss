@@ -82,11 +82,28 @@ header {
     }
 }
 
-.card {
-    width: 300px;
+.col-cs {
+    width: calc(100% / 5 - 25px);
+    margin-right: 25px;
+    margin-bottom: 1rem;
 
     img {
-        width: 300px;
-        height: 400px;
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+        margin-bottom: .88rem;
+        transition: all 1s ease;
+        cursor: pointer;
+    }
+}
+
+.col-12 {
+    img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+        margin-bottom: .88rem;
+        transition: all 1s ease;
+        cursor: pointer;
     }
 }
