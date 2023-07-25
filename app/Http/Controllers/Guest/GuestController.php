@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comic;
 use Illuminate\Http\Request;
+use App\Models\Comic;
 
-class AdminController extends Controller
+class GuestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class AdminController extends Controller
     {
         $navLinks = config('db.navLinks');
         $comics = Comic::all();
-        return view('admin.welcome', compact('navLinks', 'comics'));
+        return view('guest.home', compact('navLinks', 'comics'));
     }
 
     /**
@@ -27,8 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $navLinks = config('db.navLinks');
-        return view('admin.create', compact('navLinks'));
+        //
     }
 
     /**
@@ -39,12 +38,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $newComic = new Comic();
-        $newComic->fill($data);
-        $newComic->save();
-
-        return redirect()->route('showComic', $newComic->id);
+        //
     }
 
     /**
@@ -55,9 +49,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $navLinks = config('db.navLinks');
-        $singleComic = Comic::findOrFail($id);
-        return view('admin.show', compact('singleComic', 'navLinks'));
+        //
     }
 
     /**
@@ -80,6 +72,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
     }
 
     /**
