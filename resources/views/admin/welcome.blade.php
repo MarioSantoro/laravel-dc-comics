@@ -11,6 +11,14 @@
                     </div>
                 </div>
             </div>
+        @elseif (session('deleted'))
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success">
+                        <p class="m-0">Fumetto eliminato con successo!!</p>
+                    </div>
+                </div>
+            </div>
         @endif
         <div class="row">
             <div class="col-12 text-end">
@@ -39,6 +47,12 @@
                                 <td>
                                     <a href="{{ route('showComic', $comic->id) }}" class="btn btn-primary">View</a>
                                     <a href="{{ route('editComic', $comic->id) }}" class="btn btn-success">Edit</a>
+                                    <form action="{{ route('deleteComic', $comic->id) }}" method="POST"
+                                        class="d-inline-block form-deleter">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-warning">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -47,4 +61,19 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        const formElements = document.querySelectorAll('form.form-deleter');
+        formElements.forEach(formElement => {
+            formElement.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const controll = window.confirm('Vuoi davvero cancellare questo fumetto?');
+                if (controll) {
+                    this.submit();
+                }
+            });
+        });
+    </script>
 @endsection

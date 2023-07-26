@@ -20,5 +20,6 @@ Route::get('/admin', [AdminController::class, 'index'])->name('HomepageAdmin');
 Route::get('admin/create', [AdminController::class, 'create'])->name('CreateAdmin');
 Route::post('admin/store', [AdminController::class, 'store'])->name('AdminStore');
 Route::put('admin/update/{id}', [AdminController::class, 'update'])->name('updateComic');
+Route::delete('admin/delete/{id}', [AdminController::class, 'destroy'])->name('deleteComic');
 Route::get('admin/show{id}', [AdminController::class, 'show'])->name('showComic');
 Route::get('admin/{id}/edit', [AdminController::class, 'edit'])->name('editComic');

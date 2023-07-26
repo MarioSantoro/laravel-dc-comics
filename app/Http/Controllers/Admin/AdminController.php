@@ -97,6 +97,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteComic = Comic::findOrFail($id);
+        $deleteComic->delete();
+
+        return redirect()->route('HomepageAdmin')->with('deleted', 'Fumetto eliminato con successo!!');
     }
 }
