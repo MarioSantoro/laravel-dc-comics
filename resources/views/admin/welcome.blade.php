@@ -2,6 +2,18 @@
 
 
 @section('main-content')
+    <div class="container-modal" id="modale">
+        <div class="modale">
+            <div class="header">
+                <p class="fw-semibold fs-4 m-0 text-white">Sei sicuro di voler eliminare questo fumetto? </p>
+            </div>
+            <div class="button h-100 d-flex justify-content-center align-items-center gap-3">
+                <button class="btn btn-danger" id="Si">Si</button>
+                <button class="btn btn-primary" id="No">No</button>
+            </div>
+
+        </div>
+    </div>
     <div class="container mt-3">
         @if (session('updated'))
             <div class="row">
@@ -65,15 +77,40 @@
 
 @section('script')
     <script>
+        let controll;
+        const buttonElement = document.getElementById('modale');
+        const button1 = document.getElementById('Si');
+        const button2 = document.getElementById('No');
         const formElements = document.querySelectorAll('form.form-deleter');
         formElements.forEach(formElement => {
             formElement.addEventListener('submit', function(event) {
                 event.preventDefault();
-                const controll = window.confirm('Vuoi davvero cancellare questo fumetto?');
-                if (controll) {
-                    this.submit();
-                }
+                buttonElement.classList.add('active')
+                showConfirmationModal().then((result) => {
+                    if (result) {
+                        this.submit();
+                    }
+                });
             });
         });
+
+        function scelta(choice) {
+            return choice;
+        }
+
+        function showConfirmationModal() {
+            return new Promise(function(resolve, reject) {
+                // Aggiungi gli event listener ai pulsanti
+                button1.addEventListener("click", function() {
+                    buttonElement.classList.remove('active')
+                    resolve(true); // Risolve la promessa con valore true
+                });
+                button2.addEventListener("click", function() {
+                    console.log("Azione annullata!");
+                    buttonElement.classList.remove('active')
+                    resolve(false); // Risolve la promessa con valore false
+                });
+            });
+        }
     </script>
 @endsection
