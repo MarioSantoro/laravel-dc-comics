@@ -68,7 +68,10 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $navLinks = config('db.navLinks');
+        $newComic = Comic::findOrFail($id);
+
+        return view('admin.edit', compact('newComic', 'navLinks'));
     }
 
     /**
@@ -78,8 +81,12 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Int $id)
     {
+        $updateComic = Comic::findOrFail($id);
+        $updateComic->update($request->all());
+
+        return redirect()->route('HomepageAdmin')->with('updated', 'Fumetto aggiornato con successo!!');
     }
 
     /**
